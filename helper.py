@@ -17,12 +17,6 @@ from torch.nn.parallel import DistributedDataParallel as DDP
 import random
 import wandb
 
-wandb.login()
-adjectives = [
-    "swift", "bold", "bright", "clever", "eager", "fierce", "gentle", "happy", 
-    "keen", "lively", "mighty", "noble", "proud", "quick", "rapid", "sharp", 
-    "smart", "strong", "wise", "brave", "calm", "deep", "fair", "kind"
-]
 
 # -----------------------------------------------------------------------------
 # Muon optimizer
