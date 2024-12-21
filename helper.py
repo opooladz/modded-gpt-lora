@@ -14,14 +14,9 @@ import torch.nn.functional as F
 import torch.distributed as dist
 import torch._inductor.config as config
 from torch.nn.parallel import DistributedDataParallel as DDP
-from muon import MuonMD, MuonElasticWeightMD, AdamW_elastic_net, MuonElasticNeuronMD
 import random
 import wandb
-from adopt import ADOPT
-## 
-import math
-from init import * 
-from nnz import NNZ_unit_per_layer_gpt_filtered
+
 wandb.login()
 adjectives = [
     "swift", "bold", "bright", "clever", "eager", "fierce", "gentle", "happy", 
