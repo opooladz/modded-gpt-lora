@@ -313,8 +313,8 @@ def train_lora():
     val_B = 4  # smaller validation batch size
     val_T = 512  # smaller validation sequence length
     
-    train_loader = DistributedDataLoader('/mnt/rd/dataset/shakespeare_train_*.bin', train_B, train_T, 0, 1)
-    val_loader = DistributedDataLoader('/mnt/rd/dataset/shakespeare_val_*.bin', val_B, val_T, 0, 1)
+    train_loader = DistributedDataLoader('/mnt/rd/dataset/combined_train_*.bin', train_B, train_T, 0, 1)
+    val_loader = DistributedDataLoader('/mnt/rd/dataset/combined_val_*.bin', val_B, val_T, 0, 1)
     
     # Initialize optimizer
     # Separate parameters for Muon and AdamW
@@ -335,12 +335,12 @@ def train_lora():
     # Initialize optimizer with separate parameter groups
     optimizer = Muon(
         muon_params,
-        lr=0.0005,  # Higher learning rate for Muon
+        lr=0.005,  # Higher learning rate for Muon
         momentum=0.95,
         nesterov=True,
         ns_steps=6,
         adamw_params=adamw_params,
-        adamw_lr=3e-5,  # Lower learning rate for AdamW
+        adamw_lr=3e-4,  # Lower learning rate for AdamW
         adamw_betas=(0.90, 0.95),
         adamw_wd=0.01
     )    
